@@ -184,8 +184,6 @@ section, article {
 	width: 80%;
 	transform: translate(-50%, -50%);
 }
-
-
 .md-overlay {
     position: fixed;
     width: 100%;
@@ -198,10 +196,9 @@ section, article {
     background: rgba(143,27,15,0.8);
     transition: all 0.3s;
 }
-
-
-
-
+.md-modal .img-responsive {
+	min-width: 100%;
+} 
 .md-modal {
 	position: fixed;
 	top: 0;

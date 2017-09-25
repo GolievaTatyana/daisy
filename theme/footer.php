@@ -7,30 +7,30 @@
           <div class="hex-content">
             <h5>Daisy</h5>
             <p>615 4th Ave S, Jacksonville Beach, FL 32250</p>
-          </div>
         </div>
-      </div>
-      <div class="row hex-adress small hidden-sm show-xs">
-        <div class="hexagon">
-          <div class="hex-content">
-            <h5>Daisy</h5>
-            <p>615 4th Ave S, Jacksonville Beach, FL 32250</p>
-          </div>
-        </div>
-      </div>
-      <div class="wrapper">
-        <div class="row content">
-          <div class="logo">
-            <a class="navbar-brand" href="#header">
-              <img class="img-responsive" src="img/logo.png" alt="logo">
-              <span>Daisy</span>
-            </a>
-          </div>
-        </div>
-      </div>
     </div>
+</div>
+<div class="row hex-adress small hidden-sm show-xs">
+    <div class="hexagon">
+      <div class="hex-content">
+        <h5>Daisy</h5>
+        <p>615 4th Ave S, Jacksonville Beach, FL 32250</p>
+    </div>
+</div>
+</div>
+<div class="wrapper">
+    <div class="row content">
+      <div class="logo">
+        <a class="navbar-brand" href="#header">
+          <img class="img-responsive" src="<?php echo $templateUri ?>/img/logo.png" alt="logo">
+          <span>Daisy</span>
+      </a>
   </div>
-  <div class="cover"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cover"></div>
 </footer>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>

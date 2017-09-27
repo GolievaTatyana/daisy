@@ -151,6 +151,10 @@ section, article {
 	width: 100%;
 	height: 100%;
 }
+.flex-rewers {
+	display: flex; 
+	flex-direction: row-reverse;
+}
 .navbar-brand {
 	display: block;
 	height: 100%;

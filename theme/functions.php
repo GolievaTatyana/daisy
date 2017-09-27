@@ -10,52 +10,74 @@ if ( function_exists('add_theme_support') ) {
 	set_post_thumbnail_size( 240, 240 );
 }
 // Register post type
-/**
- * Registers a new post type
- * @uses $wp_post_types Inserts new post type object into the list
- *
- * @param string  Post type key, must not exceed 20 characters
- * @param array|string  See optional args description above.
- * @return object|WP_Error the registered post type object, or an error object
- */
-
 add_action('init', 'register_post_types');
 function register_post_types(){
 	register_post_type('portfolio', array(
 	'label'  => null,
 	'labels' => array(
-			'name'               => 'portfolio', // основное название для типа записи
-			'singular_name'      => 'item', // название для одной записи этого типа
-			'add_new'            => 'add item', // для добавления новой записи
-			'add_new_item'       => 'add new item', // заголовка у вновь создаваемой записи в админ-панели.
-			'edit_item'          => 'edit item', // для редактирования типа записи
-			'new_item'           => 'new item', // текст новой записи
-			'view_item'          => 'view item', // для просмотра записи этого типа.
-			'search_items'       => 'search item', // для поиска по этим типам записи
-			'not_found'          => 'not found', // если в результате поиска ничего не было найдено
-			'not_found_in_trash' => 'not found in trash', // если не было найдено в корзине
-			'menu_name'          => 'portfolio', // название меню
+			'name'               => 'Portfolio', 
+			'singular_name'      => 'Item', 
+			'add_new'            => 'Add item', 
+			'add_new_item'       => 'Add new item', 
+			'edit_item'          => 'Edit item', 
+			'new_item'           => 'New item', 
+			'view_item'          => 'View item', 
+			'search_items'       => 'Search item', 
+			'not_found'          => 'Not found', 
+			'not_found_in_trash' => 'Not found in trash', 
+			'menu_name'          => 'Portfolio', 
 			),
 	'description'         => '',
-	'public'              => false,
-	'publicly_queryable'  => null,
+	'public'              => true,
+	'publicly_queryable'  => true,
 	'exclude_from_search' => null,
-	'show_ui'             => null,
-	'show_in_menu'        => null, // показывать ли в меню адмнки
-	'show_in_admin_bar'   => null, // по умолчанию значение show_in_menu
-	'show_in_nav_menus'   => null,
-	'show_in_rest'        => null, // добавить в REST API. C WP 4.7
-	'rest_base'           => null, // $post_type. C WP 4.7
-	'menu_position'       => null,
-	'menu_icon'           => null, 
+	'show_ui'             => true,
+	'show_in_menu'        => true, 
+	'show_in_admin_bar'   => true, 
+	'show_in_nav_menus'   => true,
+	'menu_position'       => 20,
+	'menu_icon'           => 'dashicons-format-gallery', 
 	'hierarchical'        => false,
 	'supports'            => array('title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'),
-	'taxonomies'          => array(),
-	'has_archive'         => false,
+	'taxonomies'          => array('post_tag', 'category'),
+	'has_archive'         => true,
 	'rewrite'             => true,
 	'query_var'           => true,
 	) );
 }
+
+// function prefix_pre_get_posts($query) {
+//      if ($query->is_category) {
+//           $query->set('post_type', 'any');
+//      }
+//      return $query;
+// }
+add_action( 'init', 'wptp_register_taxonomy' );
+function wptp_register_taxonomy() {
+  register_taxonomy( 'portfolio_category', 'portfolio',
+    array(
+      'labels' => array(
+        'name'              => 'Portfolio Categories',
+        'singular_name'     => 'Portfolio Category',
+        'search_items'      => 'Search Portfolio Categories',
+        'all_items'         => 'All Portfolio Categories',
+        'edit_item'         => 'Edit Portfolio.php Categories',
+        'update_item'       => 'Update Portfolio.php Category',
+        'add_new_item'      => 'Add New Portfolio Category',
+        'new_item_name'     => 'New Portfolio Category Name',
+        'menu_name'         => 'Portfolio Category',
+        ),
+      'hierarchical' => true,
+      'sort' => true,
+      'args' => array( 'orderby' => 'term_order' ),
+      'rewrite' => array( 'slug' => 'blog' ),
+      'show_admin_column' => true
+      )
+    );
+}
+
+
+
 
 function my_custom_excerpt() {
 	add_post_type_support( 'page', 'excerpt' );

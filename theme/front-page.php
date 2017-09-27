@@ -50,7 +50,6 @@ foreach ($pagesForSections as $page) {
 
 <?php get_header();?>
 
-
 <section id="services">
 	<?php if ($receive):?>
 		<article id="receive">
@@ -129,6 +128,7 @@ foreach ($pagesForSections as $page) {
 						<div class="row text-center">
 							<div class="col-md-10 col-md-offset-1">
 								<div class="big-hexs hidden-xs">
+									
 									<?php foreach ($our_process as $key_item => $item):?>
 										<?php if ($key_item !== 0):?>
 											<?php $styleHW = get_post_meta($item->ID, 'styleHW', true);?>
@@ -139,95 +139,51 @@ foreach ($pagesForSections as $page) {
 													<div class="icon <?php echo $styleI;?>">
 														<a href="#"></a>
 													</div>
+
+													<?php if ($key_item == 4):?>
+														<?php $styleI2 = get_post_meta($item->ID, 'styleI2', true);?>
+														<div class="icon <?php echo $styleI2;?>"><a href="#"></a></div>
+													<?php endif; ?>
+
 													<div class="hex-content">
 														<h4><?php echo $item->post_excerpt; ?></h4>
 														<p><?php echo $item->post_content; ?></p>
 													</div>
 												</div>
 											</div>
+											<?php if ($key_item == 5):?>
+												<div class="hex-wrapper <?php echo $styleHW;?>">
+													<div class="hexagon <?php echo $styleH;?>">
+														<div class="icon <?php echo $styleI;?>">
+															<a href="#"></a>
+														</div>
+														<div class="hexTop"></div>
+														<div class="hexBottom"></div>
+													</div>
+												</div>
+											<?php endif; ?>
 										<?php endif;?>
 									<?php endforeach;?>
-								</div>
-							</div>
-						</div>
-
-						<div class="row text-center">
-							<div class="col-md-10 col-md-offset-1">
-								<div class="big-hexs hidden-xs">
-									<div class="hex-wrapper hex-wrapper-1">
-										<div class="hexagon hex-1">
-											<div class="icon icon-1"><a href="#"></a></div>
-											<div class="hex-content">
-												<h4>step<span> 1</span></h4>
-												<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida</p>
-											</div>
-										</div>
-									</div>
-									<div class="hex-wrapper hex-wrapper-2">
-										<div class="hexagon hex-2">
-											<div class="hexTop"></div>
-											<div class="hexBottom"></div>
-										</div>
-									</div>
-									<div class="hex-wrapper hex-wrapper-3">
-										<div class="hexagon hex-3">
-											<div class="icon icon-2"><a href="#"></a></div>
-											<div class="hex-content">
-												<h4>step<span> 2</span></h4>
-												<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida</p>
-											</div>
-										</div>
-									</div>
-									<div class="hex-wrapper hex-wrapper-4">
-										<div class="hexagon hex-4">
-											<div class="icon icon-3"><a href="#"></a></div>
-											<div class="hex-content">
-												<h4>step<span> 3</span></h4>
-												<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida</p>
-											</div>
-										</div>
-									</div>
-									<div class="hex-wrapper hex-wrapper-5">
-										<div class="hexagon hex-5">
-											<div class="icon icon-4"><a href="#"></a></div>
-											<div class="icon icon-5"><a href="#"></a></div>
-											<div class="hex-content">
-												<h4>step<span> 4</span></h4>
-												<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida</p>
-											</div>
-										</div>
-									</div>
+									
+									
 								</div>
 								<div class="rounds shov-xs hidden-sm hidden-md hidden-lg">
 									<div class="row">
-										<div class="col-xs-12">
-											<div class="item">
-												<div class="round round-1"></div>
-												<h4>step<span> 1</span></h4>
-												<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida</p>
-											</div>
-										</div>
-										<div class="col-xs-12">
-											<div class="item">
-												<div class="round round-2"></div>
-												<h4>step<span> 2</span></h4>
-												<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida</p>
-											</div>
-										</div>
-										<div class="col-xs-12">
-											<div class="item">
-												<div class="round round-3"></div>
-												<h4>step<span> 3</span></h4>
-												<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida</p>
-											</div>
-										</div>
-										<div class="col-xs-12">
-											<div class="item">
-												<div class="round round-4"></div>
-												<h4>step<span> 4</span></h4>
-												<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida</p>
-											</div>
-										</div>
+										<?php foreach ($our_process as $key_item => $item):?>
+											<?php if ($key_item !== 0):?>
+												<?php $styleR = get_post_meta($item->ID, 'styleR', true);?>
+												<div class="col-xs-12">
+													<div class="item">
+														<div class="round <?php echo $styleR;?>"></div>
+														<h4><?php echo $item->post_excerpt; ?></h4>
+														<p><?php echo $item->post_content; ?></p>
+													</div>
+												</div>
+											<?php endif;?>
+											<?php if ($key_item == 4):?>
+												<?php break; ?> 
+											<?php endif;?>
+										<?php endforeach;?>
 									</div>
 								</div>
 							</div>
@@ -240,53 +196,41 @@ foreach ($pagesForSections as $page) {
 			</div>
 		</article>
 	<?php endif;?>
-	
+
 	<article id="we-do">
-		<section id="landing-pg">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-sm-10 col-sm-offset-1">
-						<div class="wrapper">
-							<div class="row text-center caption">
-								<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
-									<h2>what do <span>we do?</span></h2>
-								</div>
-							</div>
-							<div class="row content">
-								<div class="col-md-6 col-md-push-6">
-									<div class="devices">
-										<img src="img/devices.png" alt="devices" class="img-responsive">
-									</div>
-								</div>
-								<div class="col-md-6 col-md-pull-6 text">
-									<h3>Landing Pages</h3>
-									<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate
-										Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a</p>
-										<a href="#">More details</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row text-center arrow">
-					<div class="white click-element"><a href="#advertising"></a></div>
-				</div>
-			</section>
-			<section id="advertising">
+		<?php foreach ($we_do as $key_item => $item):?>
+			<?php $sectionID = get_post_meta($item->ID, 'sectionID', true);?>
+			<?php $sectionL = get_post_meta($item->ID, 'sectionL', true);?>
+			<?php $thumbnailUrl = get_the_post_thumbnail_url($item, full);?>
+			<section id="<?php echo $sectionID; ?>">
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-sm-10 col-sm-offset-1">
 							<div class="wrapper">
-								<div class="row content">
-									<div class="col-md-6">
-										<div class="devices">
-											<img src="img/device.png" alt="device" class="img-responsive">
+								<?php if ($key_item == 0):?>
+									<div class="row text-center caption">
+										<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+											<h2><?php echo $item->post_excerpt; ?></h2>
 										</div>
 									</div>
-									<div class="col-md-6 text">
-										<h3>advertising</h3>
-										<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a</p>
+								<?php endif;?>
+								<div class="row content">
+								<?php
+								    $classFirst = "col-md-6"; 
+								    $classSecond = "col-md-6 text";
+								    if ($key_item % 2) {
+								    	$classFirst .= " col-md-push-6";
+								    	$classSecond .= " col-md-pull-6";
+								    }
+								?>
+									<div class="<?php echo $classFirst; ?>">
+										<div class="devices">
+											<img src="<?php echo $thumbnailUrl; ?>" alt="devices" class="img-responsive">
+										</div>
+									</div>
+									<div class="<?php echo $classSecond; ?>">
+										<h3><?php echo $item->post_title; ?></h3>
+										<p><?php echo $item->post_content; ?></p>
 										<a href="#">More details</a>
 									</div>
 								</div>
@@ -295,36 +239,12 @@ foreach ($pagesForSections as $page) {
 					</div>
 				</div>
 				<div class="row text-center arrow">
-					<div class="white click-element"><a href="#marketing"></a></div>
+					<div class="white click-element"><a href="#<?php echo $sectionL; ?>"></a></div>
 				</div>
 			</section>
-			<section id="marketing">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-sm-10 col-sm-offset-1">
-							<div class="wrapper">
-								<div class="row content">
-									<div class="col-md-6 col-md-push-6">
-										<div class="devices">
-											<img src="img/book.png" alt="book" class="img-responsive">
-										</div>
-									</div>
-									<div class="col-md-6 col-md-pull-6 text">
-										<h3>marketing kit</h3>
-										<p>This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a</p>
-										<a href="#">More details</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row text-center arrow">
-					<div class="white click-element"><a href="#portfolio"></a></div>
-				</div>
-			</section>
-		</article>
+		<?php endforeach;?>
 	</article>
+</article>
 </section>
 
 <?php get_footer();?>

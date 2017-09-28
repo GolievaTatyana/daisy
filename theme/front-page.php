@@ -215,14 +215,14 @@ foreach ($pagesForSections as $page) {
 									</div>
 								<?php endif;?>
 								<div class="row content">
-								<?php
-								    $classFirst = "col-md-6"; 
-								    $classSecond = "col-md-6 text";
-								    if ($key_item % 2) {
-								    	$classFirst .= " col-md-push-6";
-								    	$classSecond .= " col-md-pull-6";
-								    }
-								?>
+									<?php
+									$classFirst = "col-md-6"; 
+									$classSecond = "col-md-6 text";
+									if ($key_item % 2) {
+										$classFirst .= " col-md-push-6";
+										$classSecond .= " col-md-pull-6";
+									}
+									?>
 									<div class="<?php echo $classFirst; ?>">
 										<div class="devices">
 											<img src="<?php echo $thumbnailUrl; ?>" alt="devices" class="img-responsive">
@@ -244,7 +244,155 @@ foreach ($pagesForSections as $page) {
 			</section>
 		<?php endforeach;?>
 	</article>
-</article>
+</section>
+
+<section id="portfolio">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-10 col-sm-offset-1">
+				<div class="row text-center caption">
+					<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+						<h2>Portfolio</h2>
+					</div>
+				</div>
+				<div class="row slider-container">
+					<div class="row text-center">
+						<ul class="single-item-info">
+							<?php
+							$categories = get_categories(array(
+							'type'         => 'post',
+							'child_of'     => 0,
+							'parent'       => '',
+							'orderby'      => 'name',
+							'order'        => 'ASC',
+							'hide_empty'   => 1,
+							'hierarchical' => 1,
+							'exclude'      => '',
+							'include'      => '',
+							'number'       => 0,
+							'taxonomy'     => 'portfolio_category',
+							'pad_counts'   => false,
+							));
+							foreach( $categories as $category ){
+								echo '<li><a href="' . get_category_link( $category->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $category->name ) . '" ' . '>' . $category->name.'</a> </li> ';
+							}
+							?>
+						</ul>
+					</div>
+
+					<div class="row">
+						<div class="single-item">
+							<?php foreach( $categories as $category ) {
+								$args = array('post_type' => 'portfolio',
+												'portfolio_category' => $term->slug);
+								$query = new WP_Query( $args );
+								while ( $query->have_posts() ) : $query->the_post(); ?>
+
+								<div class="col-xs-12 col-sm-4">
+									<div class="img-container">
+										<?php $attr = array(
+										'class' => "archive-image",
+										'alt' => trim( strip_tags( $wp_postmeta->_wp_attachment_image_alt ) ),
+										); ?>
+										<div class="img"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'thumbnail', $attr ); ?></a></div>
+										<div class="img-hover">
+											<a href="#" class="md-trigger" data-modal="galery-modal-1">
+												<p>Item name</p>
+												<img src="img/plus.png" alt="plus">
+											</a>
+										</div>
+									</div>
+								</div>
+
+
+
+							<?php endwhile; wp_reset_postdata();
+
+						} ?>
+							<!-- <div class="slide">
+								<div class="row">
+									<div class="col-xs-12 col-sm-6">
+										<div class="img-container">
+											<div class="img"><img src="img/folio1.png" alt="" class="img-responsive"></div>
+											<div class="img-hover">
+												<a href="#" class="md-trigger" data-modal="galery-modal-1">
+													<p>Item name</p>
+													<img src="img/plus.png" alt="plus">
+												</a>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-3">
+										<div class="img-container">
+											<div class="img"><img src="img/folio2.png" alt="" class="img-responsive"></div>
+											<div class="img-hover">
+												<a href="#" class="md-trigger" data-modal="galery-modal-2">
+													<p>Item name</p>
+													<img src="img/plus.png" alt="plus">
+												</a>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-3">
+										<div class="img-container">
+											<div class="img"><img src="img/folio3.png" alt="" class="img-responsive"></div>
+											<div class="img-hover">
+												<a href="#" class="md-trigger" data-modal="galery-modal-3">
+													<p>Item name</p>
+													<img src="img/plus.png" alt="plus">
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row flex-rewers">
+									<div class="col-xs-12 col-sm-6">
+										<div class="img-container">
+											<div class="img"><img src="img/folio6.png" alt="" class="img-responsive"></div>
+											<div class="img-hover">
+												<a href="#" class="md-trigger" data-modal="galery-modal-6">
+													<p>Item name</p>
+													<img src="img/plus.png" alt="plus">
+												</a>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-3">
+										<div class="img-container">
+											<div class="img"><img src="img/folio4.png" alt="" class="img-responsive"></div>
+											<div class="img-hover">
+												<a href="#" class="md-trigger" data-modal="galery-modal-4">
+													<p>Item name</p>
+													<img src="img/plus.png" alt="plus">
+												</a>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-3">
+										<div class="img-container">
+											<div class="img"><img src="img/folio5.png" alt="" class="img-responsive"></div>
+											<div class="img-hover">
+												<a href="#" class="md-trigger" data-modal="galery-modal-5">
+													<p>Item name</p>
+													<img src="img/plus.png" alt="plus">
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div> -->
+						</div>
+					</div>
+				</div>
+				<div class="row text-center oder">
+					<a href="#">I want landing page</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row text-center arrow">
+		<div class="white click-element"><a href="#team"></a></div>
+	</div>
 </section>
 
 <?php get_footer();?>

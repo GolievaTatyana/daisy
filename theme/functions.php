@@ -39,7 +39,7 @@ function register_post_types(){
 	'menu_icon'           => 'dashicons-format-gallery', 
 	'hierarchical'        => false,
 	'supports'            => array('title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'),
-	'taxonomies'          => array('post_tag', 'category'),
+	'taxonomies'          => array('post_tag', 'portfolio_category'),
 	'has_archive'         => true,
 	'rewrite'             => true,
 	'query_var'           => true,
@@ -70,7 +70,7 @@ function wptp_register_taxonomy() {
       'hierarchical' => true,
       'sort' => true,
       'args' => array( 'orderby' => 'term_order' ),
-      'rewrite' => array( 'slug' => 'blog' ),
+      'rewrite' => array( 'slug' => 'portfolio-category' ),
       'show_admin_column' => true
       )
     );

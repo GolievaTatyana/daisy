@@ -11,80 +11,57 @@
 						<h2>Portfolio</h2>
 					</div>
 				</div>
+				<ul class="single-item-info">
+					<?php
+					$categories = get_categories(array(
+					'type'         => 'post',
+					'child_of'     => 0,
+					'parent'       => '',
+					'orderby'      => 'name',
+					'order'        => 'ASC',
+					'hide_empty'   => 1,
+					'hierarchical' => 0,
+					'exclude'      => '',
+					'include'      => '',
+					'number'       => 0,
+					'taxonomy'     => 'portfolio_category',
+					'pad_counts'   => false,
+					));
+					foreach( $categories as $category ){
+						echo '<li><a href="' . get_category_link( $category->term_id ) . '" title="' . sprintf( __( "View all posts in %s" ), $category->name ) . '" ' . '>' . $category->name.'</a> </li> ';
+					}
+					?>
+				</ul>
 				<div class="row slider-container">
 					<div class="row text-center">
-						<?php 
-						$args = array( 'hide_empty=0' );
-						$terms = get_terms('portfolio_category', $args);
+						<?php $args = array( 'post_type' => 'portfolio' ); ?>
+						<?php $my_query = new WP_Query( $args ); ?>
+						<?php if ( $my_query->have_posts() ) : ?>
+							<?php while ( $my_query->have_posts() ) : $my_query->the_post();?>
+								<div class="col-xs-12 col-sm-6 col-md-3">
+									<?php $thumbnailUrl = get_the_post_thumbnail_url($my_thumb, full); ?>
+									<div class="hovereffect">
+										<div class="folio-image">
+											<img src="<?php echo $thumbnailUrl; ?>" alt="" class="img-responsive">
+										</div>
+										<div class="overlay">
+											<h6><?php the_title(); ?></h6>
+										</div>
+									</div>
+								</div>
+							<?php endwhile; ?>
+							
+						<?php endif; ?>
 
-
-						if ( !empty( $terms ) && !is_wp_error( $terms ) ) {
-							$count = count($terms);
-							$i=0;
-							$term_list = '<ul class="single-item-info">';
-							foreach ($terms as $term) {
-								$i++;
-								$term_list .= '<li><a href="' . get_term_link( $term ) . '" title="' . sprintf(__('View all post filed under %s', 'my_localization_domain'), $term->name) . '">' . $term->name . '</a></li>';
-								if ($count != $i) {
-									$term_list .= ' / ';
-								}
-								else {
-									$term_list .= '</ul>';
-								}
-							}
-							echo $term_list;
-						}
-						?>
+						
 						
 					</div>
 
-					<div class="row">
-						<div class="single-item">
-							<div class="slide">
-								<?php
-								$classRow = "row";
-								if ($key_item % 2) {
-									$classRow .= " flex-rewers";
-								}
-								?>
-								<div class="<?php echo $classRow; ?>">
 
-									<?php foreach( $terms as $term ) {
-										$args = array('post_type' => 'portfolio',
-														'portfolio_category' => $term->slug);
-										$query = new WP_Query( $args );
-										while ( $query->have_posts() ) : $query->the_post(); ?>
-
-										<div class="col-xs-12 col-sm-4">
-											<div class="img-container">
-												<?php $attr = array(
-												'class' => "archive-image",
-												'alt' => trim( strip_tags( $wp_postmeta->_wp_attachment_image_alt ) ),
-												); ?>
-												<div class="img"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'thumbnail', $attr ); ?></a></div>
-												<div class="img-hover">
-													<a href="#" class="md-trigger" data-modal="galery-modal-1">
-														<p>Item name</p>
-														<img src="img/plus.png" alt="plus">
-													</a>
-												</div>
-											</div>
-										</div>
-
-										
-
-									<?php endwhile; wp_reset_postdata();
-
-								} ?>
-								
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </section>
 
 <?php get_footer(); ?>

@@ -15,18 +15,18 @@ function register_post_types(){
 	register_post_type('portfolio', array(
 	'label'  => null,
 	'labels' => array(
-			'name'               => 'Portfolio', 
-			'singular_name'      => 'Item', 
-			'add_new'            => 'Add item', 
-			'add_new_item'       => 'Add new item', 
-			'edit_item'          => 'Edit item', 
-			'new_item'           => 'New item', 
-			'view_item'          => 'View item', 
-			'search_items'       => 'Search item', 
-			'not_found'          => 'Not found', 
-			'not_found_in_trash' => 'Not found in trash', 
-			'menu_name'          => 'Portfolio', 
-			),
+	'name'               => 'Portfolio', 
+	'singular_name'      => 'Item', 
+	'add_new'            => 'Add item', 
+	'add_new_item'       => 'Add new item', 
+	'edit_item'          => 'Edit item', 
+	'new_item'           => 'New item', 
+	'view_item'          => 'View item', 
+	'search_items'       => 'Search item', 
+	'not_found'          => 'Not found', 
+	'not_found_in_trash' => 'Not found in trash', 
+	'menu_name'          => 'Portfolio', 
+	),
 	'description'         => '',
 	'public'              => true,
 	'publicly_queryable'  => true,
@@ -38,11 +38,24 @@ function register_post_types(){
 	'menu_position'       => 20,
 	'menu_icon'           => 'dashicons-format-gallery', 
 	'hierarchical'        => false,
-	'supports'            => array('title','editor','author','thumbnail','excerpt','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'),
-	'taxonomies'          => array('post_tag', 'portfolio_category'),
+	'supports'            => array(
+								'title',
+								'editor',
+								'author',
+								'thumbnail',
+								'excerpt',
+								'trackbacks',
+								'custom-fields',
+								'comments',
+								'revisions',
+								'page-attributes',
+								'post-formats'
+								),
+	'taxonomies'          => array('portfolio_category'),
 	'has_archive'         => true,
 	'rewrite'             => true,
 	'query_var'           => true,
+	'permalink_epmask' => EP_PERMALINK, 
 	) );
 }
 
@@ -54,26 +67,26 @@ function register_post_types(){
 // }
 add_action( 'init', 'wptp_register_taxonomy' );
 function wptp_register_taxonomy() {
-  register_taxonomy( 'portfolio_category', 'portfolio',
-    array(
-      'labels' => array(
-        'name'              => 'Portfolio Categories',
-        'singular_name'     => 'Portfolio Category',
-        'search_items'      => 'Search Portfolio Categories',
-        'all_items'         => 'All Portfolio Categories',
-        'edit_item'         => 'Edit Portfolio.php Categories',
-        'update_item'       => 'Update Portfolio.php Category',
-        'add_new_item'      => 'Add New Portfolio Category',
-        'new_item_name'     => 'New Portfolio Category Name',
-        'menu_name'         => 'Portfolio Category',
-        ),
-      'hierarchical' => true,
-      'sort' => true,
-      'args' => array( 'orderby' => 'term_order' ),
-      'rewrite' => array( 'slug' => 'portfolio-category' ),
-      'show_admin_column' => true
-      )
-    );
+	register_taxonomy( 'portfolio_category', 'portfolio',
+	array(
+	'labels' => array(
+	'name'              => 'Portfolio Categories',
+	'singular_name'     => 'Portfolio Category',
+	'search_items'      => 'Search Portfolio Categories',
+	'all_items'         => 'All Portfolio Categories',
+	'edit_item'         => 'Edit Portfolio.php Categories',
+	'update_item'       => 'Update Portfolio.php Category',
+	'add_new_item'      => 'Add New Portfolio Category',
+	'new_item_name'     => 'New Portfolio Category Name',
+	'menu_name'         => 'Portfolio Category',
+	),
+	'hierarchical' => true,
+	'sort' => true,
+	'args' => array( 'orderby' => 'term_order' ),
+	'rewrite' => array( 'slug' => 'portfolio-category' ),
+	'show_admin_column' => true
+	)
+	);
 }
 
 

@@ -898,7 +898,7 @@ section, article {
 #portfolio h2::after {
 	width: 13vw;
 }
-#portfolio .single-item-info {
+#portfolio .single-info {
 	border-top: 1px solid #adadad;
 	border-bottom: 1px solid #adadad;
 	padding: 15px;
@@ -910,15 +910,15 @@ section, article {
 	-ms-flex-pack: justify;
 	justify-content: space-between;
 }
-#portfolio .single-item-info li {
+#portfolio .single-info li {
 	display: inline-block;
 }
-#portfolio .single-item-info a {
+#portfolio .single-info a {
 	color: #fc635e;
 	font-size: 1.5vw;
 	text-transform: uppercase;
 }
-#portfolio .single-item-info span {
+#portfolio .single-info span {
 	color: #adadad;
 	font-size: 1.5vw;
 }
@@ -1253,7 +1253,7 @@ section, article {
 	border-left: solid 16.9706px #fe8682;
 }
 .hex-adress .hexagon {
-	margin-top: -33%;
+	margin-top: 0%;
 }
 .hex-adress .hex-content {
 	word-wrap: break-word;

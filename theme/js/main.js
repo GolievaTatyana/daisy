@@ -65,7 +65,7 @@ jQuery(function($) {
 
 
 
-  $('.single-item-info a').click(function(e) {
+  $('.single-info a').click(function(e) {
     e.preventDefault();
     $(this).parents('.slider-container').find('.single-item').slick('slickGoTo',  $(this).data('tabindex'));
   });

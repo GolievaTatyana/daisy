@@ -890,7 +890,9 @@ section, article {
 #we-do section:nth-child(2n) p {
 	text-align: right;
 }
-
+#portfolio.portfolio-category h2 {
+	margin-bottom: 3vw;
+}
 #portfolio .caption,
 #portfolio h2 {
 	margin-bottom: 0;
@@ -898,7 +900,29 @@ section, article {
 #portfolio h2::after {
 	width: 13vw;
 }
-#portfolio .single-info {
+#portfolio.portfolio-pg .slick-prev {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -5vw;
+    height: 5vw;
+    width: 2vw;
+    background: url(img/left.svg) 50% 50% no-repeat;
+    background-size: contain;
+    filter: opacity(50%);
+}
+#portfolio.portfolio-pg .slick-prev:hover, 
+#portfolio.portfolio-pg .slick-prev:focus,
+#portfolio.portfolio-pg .slick-next:hover, 
+#portfolio.portfolio-pg .slick-next:focus {
+	filter: opacity(30%);
+}
+#portfolio.portfolio-pg .slick-next {
+    background: url(img/right.svg) 50% 50% no-repeat;
+    filter: opacity(50%);
+}
+#portfolio .single-info,
+#portfolio .single-inf {
 	border-top: 1px solid #adadad;
 	border-bottom: 1px solid #adadad;
 	padding: 15px;
@@ -910,15 +934,21 @@ section, article {
 	-ms-flex-pack: justify;
 	justify-content: space-between;
 }
-#portfolio .single-info li {
+#portfolio .single-info li,
+#portfolio .single-inf li {
 	display: inline-block;
 }
-#portfolio .single-info a {
+#portfolio .single-inf li:last-child {
+	display: none;
+}
+#portfolio .single-info a,
+#portfolio .single-inf a {
 	color: #fc635e;
 	font-size: 1.5vw;
 	text-transform: uppercase;
 }
-#portfolio .single-info span {
+#portfolio .single-info span,
+#portfolio .single-inf span {
 	color: #adadad;
 	font-size: 1.5vw;
 }
@@ -1429,8 +1459,10 @@ section, article {
 	#portfolio h2::after {
 		width: 20vw;
 	}
-	#portfolio .single-item-info a,
-	#portfolio .single-item-info span {
+	#portfolio .single-info a,
+	#portfolio .single-info span,
+	#portfolio .single-inf a,
+	#portfolio .single-inf span {
 		font-size: 2.3vw;
 	}
 	#team h2::after {
@@ -1562,7 +1594,10 @@ section, article {
 	#we-do .text a, .oder a {
 		font-size: 2.3vw;
 	}
-	#portfolio .single-item-info a, #portfolio .single-item-info span {
+	#portfolio .single-info a, 
+	#portfolio .single-info span,
+	#portfolio .single-inf a, 
+	#portfolio .single-inf span {
 		font-size: 2.8vw;
 	}
 	.img img {
@@ -1726,19 +1761,22 @@ section, article {
 	#business {
 		min-height: 100vh;
 	}
-	#portfolio .single-item-info a {
+	#portfolio .single-info a,
+	#portfolio .single-inf a {
 		padding: 0 10px;
 	}
 	.img img {
 		height: 45vw;
 	}
 	#one-member .slick-next,
-	#one-member .slick-next:hover, #one-member .slick-next:focus {
+	#one-member .slick-next:hover, 
+	#one-member .slick-next:focus {
 		top: 110%;
 		right: 43%;
 	}
 	#one-member .slick-prev,
-	#one-member .slick-prev:hover, #one-member .slick-prev:focus {
+	#one-member .slick-prev:hover, 
+	#one-member .slick-prev:focus {
 		top: 110%;
 		left: 43%;
 	}
@@ -1845,32 +1883,45 @@ section, article {
 	#we-do .content>div {
 		height: auto;
 	}
-	#portfolio .single-item-info {
+	#portfolio .single-info,
+	.single-inf {
 		margin: 15px 0;
 	}
-	#portfolio .single-item-info,
-	#portfolio .single-item-info li {
+	#portfolio .single-info,
+	#portfolio .single-info li,
+	#portfolio .single-inf,
+	#portfolio .single-inf li {
 		display: block;
 		padding: 5px 0;
 	}
-	#portfolio .single-item-info li:nth-child(2n) {
+	#portfolio .single-info li:nth-child(2n),
+	#portfolio .single-inf li:nth-child(2n) {
 		display: none;
 	}
-	#portfolio .single-item-info a, #portfolio .single-item-info span {
+	#portfolio .single-info a, 
+	#portfolio .single-info span,
+	#portfolio .single-inf a, 
+	#portfolio .single-inf span {
 		font-size: 5.4vw;
 	}
-	#portfolio .single-item-info a::before {
+	#portfolio .single-info a::before,
+	#portfolio .single-inf a::before {
 		content: "/";
 		color: #adadad;
 		margin-right: 10px;
 	}
-	#portfolio .single-item-info a::after {
+	#portfolio .single-info a::after,
+	#portfolio .single-inf a::after {
 		content: "/";
 		color: #adadad;
 		margin-left: 10px;
 	}
-	#portfolio .single-item-info {
+	#portfolio .single-info,
+	#portfolio .single-inf {
 		border: none;
+	}
+	.flex-rewers  {
+		display: block;
 	}
 	.img-container {
 		margin-bottom: 15px;

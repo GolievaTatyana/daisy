@@ -1856,6 +1856,9 @@ section, article {
 	#portfolio .single-item-info {
 		border: none;
 	}
+	.flex-rewers  {
+		display: block;
+	}
 	.img-container {
 		margin-bottom: 15px;
 	}

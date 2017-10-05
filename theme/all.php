@@ -1,4 +1,4 @@
-<?php /*Template Name: Portfolio-category*/ ?>
+<?php /*Template Name: all-Portfolio-category*/ ?>
 <?php $templateUri = get_template_directory_uri();?>
 
 <?php get_header(); ?>

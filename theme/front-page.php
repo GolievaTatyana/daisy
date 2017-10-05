@@ -90,23 +90,22 @@ foreach ($pagesForSections as $page) {
 				<div class="white click-element"><a href="#business"></a></div>
 			</div>
 		</article>
-
-		<?php $BusinessPage = $business[0];?>
-		<article id="business">
-			<div class="container-fluid">
-				<div class="row text-center">
-					<div class="border">
-						<h1><?php echo $BusinessPage->post_excerpt; ?></h1>
-						<?php echo $BusinessPage->post_content; ?>
-					</div>
+	<?php endif;?>
+	<?php $BusinessPage = $business[0];?>
+	<article id="business">
+		<div class="container-fluid">
+			<div class="row text-center">
+				<div class="border">
+					<h1><?php echo $BusinessPage->post_excerpt; ?></h1>
+					<?php echo $BusinessPage->post_content; ?>
 				</div>
 			</div>
-			<div class="row text-center arrow">
-				<div class="red click-element"><a href="#about"></a></div>
-			</div>
-			<div class="cover"></div>
-		</article>
-	<?php endif;?>
+		</div>
+		<div class="row text-center arrow">
+			<div class="red click-element"><a href="#about"></a></div>
+		</div>
+		<div class="cover"></div>
+	</article>
 </section>
 
 <section id="about">
@@ -302,65 +301,159 @@ foreach ($pagesForSections as $page) {
 										<?php $postCounter = 0; ?>
 										<?php while ( $query->have_posts() ) : $query->the_post(); ?>
 											<?php if ($postCounter % 6 === 0):?>
-											<div class="slide">
-												<div class="row">
-											<?php elseif ($postCounter % 6 === 3): ?>
-												<div class="row flex-rewers">
-											<?php endif;?>
+												<div class="slide">
+													<div class="row">
+													<?php elseif ($postCounter % 6 === 3): ?>
+														<div class="row flex-rewers">
+														<?php endif;?>
 
-												<?php if ($postCounter % 3 === 0): ?>
-													<div class="col-xs-12 col-sm-6">
-												<?php else: ?>
-													<div class="col-xs-6 col-sm-3">
-												<?php endif; ?>
-														<div class="img-container">
-																<div class="img">
-																	<a href="<?php the_permalink(); ?>">
-																		<?php the_post_thumbnail( 'widgetfull' );?>
-																	</a>
+														<?php if ($postCounter % 3 === 0): ?>
+															<div class="col-xs-12 col-sm-6">
+															<?php else: ?>
+																<div class="col-xs-6 col-sm-3">
+																<?php endif; ?>
+																<div class="img-container">
+																	<div class="img">
+																		<a href="<?php the_permalink(); ?>">
+																			<?php the_post_thumbnail( 'widgetfull' );?>
+																		</a>
+																	</div>
+																	<div class="img-hover">
+																		<a href="#" class="md-trigger" data-modal="galery-modal-2">
+																			<p><?php the_title(); ?></p>
+																			<img src="<?php echo $templateUri; ?>/img/plus.png" alt="plus">
+																		</a>
+																	</div>
 																</div>
-																<div class="img-hover">
-																	<a href="#" class="md-trigger" data-modal="galery-modal-2">
-																		<p><?php the_title(); ?></p>
-																		<img src="<?php echo $templateUri; ?>/img/plus.png" alt="plus">
-																	</a>
-																</div>
+															</div>
+
+															<?php if ($postCounter % 6 === 2): ?>
+															</div>
+														<?php elseif ($postCounter % 6 === 5): ?>
 														</div>
 													</div>
-
-											<?php if ($postCounter % 6 === 2): ?>
-												</div>
-											<?php elseif ($postCounter % 6 === 5): ?>
-												</div>
+												<?php endif; ?>
+												<?php $postCounter++; ?>
+											<?php endwhile; ?>
+											<?php if ($postCounter % 3 !== 0): ?>
 											</div>
-											<?php endif; ?>
-											<?php $postCounter++; ?>
-										<?php endwhile; ?>
-												<?php if ($postCounter % 3 !== 0): ?>
-													</div>
-												<?php endif; ?>
-												<?php if ($postCounter % 6 !== 0): ?>
-												</div>
-												<?php endif; ?>
-										<?php wp_reset_postdata(); ?>
+										<?php endif; ?>
+										<?php if ($postCounter % 6 !== 0): ?>
+										</div>
 									<?php endif; ?>
-										<?php		
-									}
+									<?php wp_reset_postdata(); ?>
+								<?php endif; ?>
+								<?php		
+							}
 
-								}
-								?>
-							</div>
-						</div>
-					</div>
-					<div class="row text-center oder">
-						<a href="#">I want landing page</a>
+						}
+						?>
 					</div>
 				</div>
 			</div>
+			<div class="row text-center oder">
+				<a href="#">I want landing page</a>
+			</div>
 		</div>
-		<div class="row text-center arrow">
-			<div class="white click-element"><a href="#team"></a></div>
-		</div>
-	</section>
+	</div>
+	<div class="row text-center arrow">
+		<div class="white click-element"><a href="#team"></a></div>
+	</div>
+</section>
 
-	<?php get_footer();?>
+<section id="team">
+	<?php if ($all_members):?>
+		<article id="all-members">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-10 col-sm-offset-1">
+						<div class="row text-center caption">
+							<div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+								<h2>Our<span> team</span></h2>
+							</div>
+						</div>
+						<div class="row slider-container">
+							<div class="all-members">
+								<?php foreach ($all_members as $key_item => $item):?>
+									<?php $teamItem = get_post_meta($item->ID, 'teamItem', true);?>
+									
+									<div class="slide text-center">
+										<div class="hexagon" style="background-image: url(<?php echo $templateUri;?>/img/<?php echo $teamItem;?>.png);">
+											<div class="hexTop"></div>
+											<div class="hexBottom"></div>
+										</div>
+										<h3><?php echo $item->post_excerpt; ?></h3>
+										<p><?php echo $item->post_title; ?></p>
+										<ul class="socio">
+											<li><a href="#"><img src="<?php echo $templateUri;?>/img/twitter.png" alt="twitter"></a></li>
+											<li><a href="#"><img src="<?php echo $templateUri;?>/img/facebook.png" alt="facebook"></a></li>
+											<li><a href="#"><img src="<?php echo $templateUri;?>/img/in.png" alt="in"></a></li>
+										</ul>
+									</div>
+									
+								<?php endforeach;?>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row text-center arrow">
+				<div class="white click-element"><a href="#one-member"></a></div>
+			</div>
+		</article>
+	<?php endif; ?>
+
+	<?php if ($one_member):?>
+		<article id="one-member">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-10 col-sm-offset-1">
+						<div class="hex-quotes">
+							<div class="hexagon" style="background-image: url(<?php echo $templateUri;?>/img/quotes.png)">
+								<div class="hexTop"></div>
+								<div class="hexBottom"></div>
+							</div>
+						</div>
+						<div class="row slider-container">
+							<div class="one-member">
+								<?php foreach ($one_member as $key_item => $item):?>
+									<?php $teamItem = get_post_meta($item->ID, 'teamItem', true);?>
+									<div class="slide">
+										<div class="wrapper">
+											<div class="row content">
+												<div class="col-sm-12 col-md-4 col-md-push-4">
+													<div class="hexagon" style="background-image: url(<?php echo $templateUri;?>/img/<?php echo $teamItem;?>.png);">
+														<div class="hexTop"></div>
+														<div class="hexBottom"></div>
+													</div>
+												</div>
+												<div class="col-sm-12 col-md-4 col-md-push-4 member-caption">
+													<h3><?php echo $item->post_excerpt; ?></h3>
+													<p><?php echo $item->post_title; ?></p>
+												</div>
+												<div class="col-sm-12 col-md-4 col-md-pull-8">
+													<p><?php echo $item->post_content; ?></p>
+												</div>
+											</div>
+										</div>
+									</div>
+								<?php endforeach;?>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</article>
+	<?php endif; ?>
+</section>
+
+<?php $ContactPage = $contact[0];?>
+<section id="contact">
+	<div class="container-fluid">
+		<div class="row map">
+			<?php echo $ContactPage->post_excerpt; ?>
+		</div>
+	</div>
+</section>
+
+<?php get_footer();?>

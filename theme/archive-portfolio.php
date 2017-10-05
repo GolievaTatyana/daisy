@@ -4,7 +4,7 @@
 <?php get_header(); ?>
 
 <section id="portfolio" class="portfolio-pg">
-  <div class="container-fluid ">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-sm-10 col-sm-offset-1">
         <div class="row text-center caption">
@@ -106,9 +106,6 @@
       </div>
     </div>
   </div>
-</div>
-<div class="row text-center arrow">
-  <div class="white click-element"><a href="#team"></a></div>
 </div>
 </section>
 

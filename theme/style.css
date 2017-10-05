@@ -43,8 +43,8 @@ a:hover, a:focus {
 }
 
 html, body {
-	width: 100vw;
-	height: 100%;
+	/*width: 100vw;
+	height: 100%;*/
 	overflow-x: hidden;
 	background: #fff;
 	font-family: "PFEncoreSansPro-Regular";
@@ -900,7 +900,8 @@ section, article {
 #portfolio h2::after {
 	width: 13vw;
 }
-#portfolio.portfolio-pg .slick-prev {
+#portfolio.portfolio-pg .slick-prev,
+.all-members .slick-prev {
     content: '';
     position: absolute;
     top: 50%;
@@ -914,13 +915,21 @@ section, article {
 #portfolio.portfolio-pg .slick-prev:hover, 
 #portfolio.portfolio-pg .slick-prev:focus,
 #portfolio.portfolio-pg .slick-next:hover, 
-#portfolio.portfolio-pg .slick-next:focus {
+#portfolio.portfolio-pg .slick-next:focus,
+.all-members .slick-prev:hover,
+.all-members .slick-prev:focus,
+.all-members .slick-next:hover,
+.all-members .slick-next:focus {
 	filter: opacity(30%);
 }
-#portfolio.portfolio-pg .slick-next {
+#portfolio.portfolio-pg .slick-next,
+.all-members .slick-next {
     background: url(img/right.svg) 50% 50% no-repeat;
     filter: opacity(50%);
 }
+/*#portfolio.portfolio-pg .hex-adress {
+	display: none;
+}*/
 #portfolio .single-info,
 #portfolio .single-inf {
 	border-top: 1px solid #adadad;
@@ -1283,7 +1292,7 @@ section, article {
 	border-left: solid 16.9706px #fe8682;
 }
 .hex-adress .hexagon {
-	margin-top: 0%;
+	margin-top: -33%;
 }
 .hex-adress .hex-content {
 	word-wrap: break-word;

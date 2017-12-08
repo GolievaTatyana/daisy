@@ -1257,7 +1257,7 @@ section, article {
 	width: 100%;
 	height: 100%;
 }
-.hex-adress .hexagon {
+.hex-adress .hexagon-a {
 	position: relative;
 	width: 240px;
 	height: 138.56px;
@@ -1268,8 +1268,8 @@ section, article {
 	margin-top: 69.28px;
 	margin-bottom: 69.28px;
 }
-.hex-adress .hexagon:before,
-.hex-adress .hexagon:after {
+.hex-adress .hexagon-a:before,
+.hex-adress .hexagon-a:after {
 	content: "";
 	position: absolute;
 	z-index: 1;
@@ -1281,18 +1281,22 @@ section, article {
 	background-color: inherit;
 	left: 23.1472px;
 }
-.hex-adress .hexagon:before {
+.hex-adress .hexagon-a:before {
 	top: -84.8528px;
 	border-top: solid 16.9706px #fe8682;
 	border-right: solid 16.9706px #fe8682;
 }
-.hex-adress .hexagon:after {
+.hex-adress .hexagon-a:after {
 	bottom: -84.8528px;
 	border-bottom: solid 16.9706px #fe8682;
 	border-left: solid 16.9706px #fe8682;
 }
-.hex-adress .hexagon {
-	margin-top: -33%;
+.hex-adress .hexagon-a {
+	position: absolute;
+	z-index: 100;
+	bottom: -50%;
+	left: 50%;
+	transform: translateX(-50%);
 }
 .hex-adress .hex-content {
 	word-wrap: break-word;
@@ -1325,6 +1329,7 @@ section, article {
 #footer .navbar-brand span {
 	display: inline;
 }
+
 
 @media screen and (max-width:1440px) {
 	h5 {
@@ -1370,6 +1375,9 @@ section, article {
 	#one-member .slick-prev, #one-member .slick-prev:hover, #one-member .slick-prev:focus {
 		top: 45vh;
 		left: 38vw;
+	}
+	.hex-adress .hexagon-a {
+		bottom: -56%;
 	}
 }
 
@@ -1494,8 +1502,8 @@ section, article {
 		top: 47vh;
 		left: 37vw;
 	}
-	.hex-adress .hexagon {
-		margin-top: -46%;
+	.hex-adress .hexagon-a {
+		bottom: -63%;
 	}
 }
 
@@ -1635,8 +1643,8 @@ section, article {
 		top: 70vw;
 		left: 34vw;
 	}
-	.hex-adress .hexagon {
-		margin-top: -61%;
+	.hex-adress .hexagon-a {
+		bottom: -77%;
 	}
 	#footer .content {
 		margin: auto;
@@ -1967,42 +1975,6 @@ section, article {
 	}
 	#one-member p {
 		margin: 0 15px;
-	}
-	.small .hexagon {
-		position: relative;
-		width: 150px;
-		height: 86.60px;
-		background-color: #fc6863;
-		border-left: solid 7px #fe8682;
-		border-right: solid 7px #fe8682;
-		margin-left: 43.30px;
-		margin-right: 43.30px;
-		margin: 0 auto;
-		z-index: 10;
-		margin-top: -156%;
-	}
-	.small .hexagon:before,
-	.small .hexagon:after {
-		content: "";
-		position: absolute;
-		z-index: 1;
-		width: 106.07px;
-		height: 106.07px;
-		-webkit-transform: scaleY(0.5774) rotate(-45deg);
-		-ms-transform: scaleY(0.5774) rotate(-45deg);
-		transform: scaleY(0.5774) rotate(-45deg);
-		background-color: inherit;
-		left: 14.9670px;
-	}
-	.small .hexagon:before {
-		top: -53.0330px;
-		border-top: solid 9.8995px #fe8682;
-		border-right: solid 9.8995px #fe8682;
-	}
-	.small .hexagon:after {
-		bottom: -53.0330px;
-		border-bottom: solid 9.8995px #fe8682;
-		border-left: solid 9.8995px #fe8682;
 	}
 	#contact .map {
 		height: 90vh;

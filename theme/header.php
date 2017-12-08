@@ -12,8 +12,9 @@
 	<link rel="stylesheet" href="<?php echo $templateUri?>/css/slick.css">
 	<link rel="stylesheet" href="<?php echo $templateUri?>/css/slick-theme.css">
 	<link rel="stylesheet" href="<?php echo $templateUri?>/style.css">
+	<link rel="shortcut icon" href="<?php echo $templateUri?>/logo.ico">
 	<title>Daisy</title>
-<?php wp_head();?>
+	<?php wp_head();?>
 </head>
 <body>
 
@@ -39,19 +40,19 @@
 								</a>
 							</div>
 
-<?php
-$args = array(
-	'theme_location'  => 'top-menu',
-	'menu'            => 'top-menu',
-	'container'       => 'div',
-	'container_class' => 'collapse navbar-collapse top-menu',
-	'container_id'    => 'bs-example-navbar-collapse-1',
-	'menu_class'      => 'nav navbar-nav',
-);
+							<?php
+							$args = array(
+							'theme_location'  => 'top-menu',
+							'menu'            => 'top-menu',
+							'container'       => 'div',
+							'container_class' => 'collapse navbar-collapse top-menu',
+							'container_id'    => 'bs-example-navbar-collapse-1',
+							'menu_class'      => 'nav navbar-nav',
+							);
 
-wp_nav_menu($args);
-;?>
-</nav>
+							wp_nav_menu($args);
+							;?>
+						</nav>
 					</div>
 				</div>
 			</div>
@@ -77,4 +78,3 @@ wp_nav_menu($args);
 		</article>
 		<div class="red"><a href="#services"></a></div>
 	</section>
-

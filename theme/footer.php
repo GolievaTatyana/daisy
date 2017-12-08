@@ -2,22 +2,6 @@
 <footer id="footer">
   <div class="row">
     <div class="container-fluid">
-      <div class="row hex-adress hidden-xs">
-        <div class="hexagon">
-          <div class="hex-content">
-            <h5>Daisy</h5>
-            <p>615 4th Ave S, Jacksonville Beach, FL 32250</p>
-          </div>
-        </div>
-      </div>
-      <div class="row hex-adress small hidden-lg hidden-md hidden-sm show-xs">
-        <div class="hexagon">
-          <div class="hex-content">
-            <h5>Daisy</h5>
-            <p>615 4th Ave S, Jacksonville Beach, FL 32250</p>
-          </div>
-        </div>
-      </div>
       <div class="wrapper">
         <div class="row content">
           <div class="logo">

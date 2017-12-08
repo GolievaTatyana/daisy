@@ -127,7 +127,7 @@ foreach ($pagesForSections as $page) {
 						<div class="row text-center">
 							<div class="col-md-10 col-md-offset-1">
 								<div class="big-hexs hidden-xs">
-									
+
 									<?php foreach ($our_process as $key_item => $item):?>
 										<?php if ($key_item !== 0):?>
 											<?php $styleHW = get_post_meta($item->ID, 'styleHW', true);?>
@@ -163,8 +163,8 @@ foreach ($pagesForSections as $page) {
 											<?php endif; ?>
 										<?php endif;?>
 									<?php endforeach;?>
-									
-									
+
+
 								</div>
 								<div class="rounds shov-xs hidden-sm hidden-md hidden-lg">
 									<div class="row">
@@ -180,7 +180,7 @@ foreach ($pagesForSections as $page) {
 												</div>
 											<?php endif;?>
 											<?php if ($key_item == 4):?>
-												<?php break; ?> 
+												<?php break; ?>
 											<?php endif;?>
 										<?php endforeach;?>
 									</div>
@@ -215,7 +215,7 @@ foreach ($pagesForSections as $page) {
 								<?php endif;?>
 								<div class="row content">
 									<?php
-									$classFirst = "col-md-6"; 
+									$classFirst = "col-md-6";
 									$classSecond = "col-md-6 text";
 									if ($key_item % 2) {
 										$classFirst .= " col-md-push-6";
@@ -278,76 +278,79 @@ foreach ($pagesForSections as $page) {
 							);
 							$categories = get_categories($arg_cat);
 							?>
-							<?php 
-							if( $categories ){
-								foreach( $categories as $cat ) {
 
-									$arg_posts =  array(
+							<?php if( $categories ): ?>
+    						<?php foreach( $categories as $cat ): ?>
+
+								<?php
+								$arg_posts =  array(
 									'orderby'      => 'name',
 									'order'        => 'ASC',
 									'posts_per_page' => 6,
 									'post_type' => 'portfolio',
 									'tax_query' => array(
-									array(
-									'taxonomy' => 'portfolio_category',
-									'field'    => 'slug',
-									'terms'    => array( $cat->name ),
+										array(
+											'taxonomy' => 'portfolio_category',
+											'field'    => 'slug',
+											'terms'    => array( $cat->slug ),
+										)
 									)
-									)
-									);
-									$query = new WP_Query($arg_posts); ?>
+								);
+								$query = new WP_Query($arg_posts);
+								?>
 
 									<?php if ($query->have_posts() ): ?>
-										<?php $postCounter = 0; ?>
-										<?php while ( $query->have_posts() ) : $query->the_post(); ?>
-											<?php if ($postCounter % 6 === 0):?>
-												<div class="slide">
-													<div class="row">
-													<?php elseif ($postCounter % 6 === 3): ?>
-														<div class="row flex-rewers">
-														<?php endif;?>
+                    <?php $postCounter = 0; ?>
+                    <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+                      <?php if ($postCounter % 6 === 0):?>
+                        <div class="slide">
+                          <div class="row">
+                      <?php elseif ($postCounter % 6 === 3): ?>
+                          <div class="row flex-rewers">
+                      <?php endif;?>
 
-														<?php if ($postCounter % 3 === 0): ?>
-															<div class="col-xs-12 col-sm-6">
-															<?php else: ?>
-																<div class="col-xs-6 col-sm-3">
-																<?php endif; ?>
-																<div class="img-container">
-																	<div class="img">
-																		<a href="<?php the_permalink(); ?>">
-																			<?php the_post_thumbnail( 'widgetfull' );?>
-																		</a>
-																	</div>
-																	<div class="img-hover">
-																		<a href="#" class="md-trigger" data-modal="galery-modal-2">
-																			<p><?php the_title(); ?></p>
-																			<img src="<?php echo $templateUri; ?>/img/plus.png" alt="plus">
-																		</a>
-																	</div>
-																</div>
-															</div>
+                      <?php if ($postCounter % 3 === 0): ?>
+                            <div class="col-xs-12 col-sm-6">
+                      <?php else: ?>
+                            <div class="col-xs-6 col-sm-3">
+                      <?php endif; ?>
 
-															<?php if ($postCounter % 6 === 2): ?>
-															</div>
-														<?php elseif ($postCounter % 6 === 5): ?>
-														</div>
-													</div>
-												<?php endif; ?>
-												<?php $postCounter++; ?>
-											<?php endwhile; ?>
-											<?php if ($postCounter % 3 !== 0): ?>
-											</div>
-										<?php endif; ?>
-										<?php if ($postCounter % 6 !== 0): ?>
-										</div>
-									<?php endif; ?>
-									<?php wp_reset_postdata(); ?>
-								<?php endif; ?>
-								<?php		
-							}
+                              <div class="img-container">
+                                <div class="img">
+                                  <a href="<?php the_permalink(); ?>">
+                                    <?php the_post_thumbnail( 'widgetfull' );?>
+                                  </a>
+                                </div>
+                                <div class="img-hover">
+                                  <a href="#" class="md-trigger" data-modal="galery-modal-2">
+                                    <p><?php the_title(); ?></p>
+                                    <img src="<?php echo $templateUri; ?>/img/plus.png" alt="plus">
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
 
-						}
-						?>
+                        <?php if ($postCounter % 6 === 2): ?>
+                            </div>
+                        <?php elseif ($postCounter % 6 === 5): ?>
+                            </div>
+                          </div>
+                        <?php endif; ?>
+
+                        <?php $postCounter++; ?>
+                    <?php endwhile; ?>
+
+                    <?php if ($postCounter % 3 !== 0): ?>
+                            </div>
+                    <?php endif; ?>
+                    <?php if ($postCounter % 6 !== 0): ?>
+                          </div>
+                    <?php endif; ?>
+
+                    <?php wp_reset_postdata(); ?>
+                  <?php endif; ?>
+                <?php endforeach; ?>
+              <?php endif;?>
 					</div>
 				</div>
 			</div>
@@ -376,7 +379,7 @@ foreach ($pagesForSections as $page) {
 							<div class="all-members">
 								<?php foreach ($all_members as $key_item => $item):?>
 									<?php $teamItem = get_post_meta($item->ID, 'teamItem', true);?>
-									
+
 									<div class="slide text-center">
 										<div class="hexagon" style="background-image: url(<?php echo $templateUri;?>/img/<?php echo $teamItem;?>.png);">
 											<div class="hexTop"></div>
@@ -390,7 +393,7 @@ foreach ($pagesForSections as $page) {
 											<li><a href="#"><img src="<?php echo $templateUri;?>/img/in.png" alt="in"></a></li>
 										</ul>
 									</div>
-									
+
 								<?php endforeach;?>
 							</div>
 						</div>
@@ -438,6 +441,14 @@ foreach ($pagesForSections as $page) {
 										</div>
 									</div>
 								<?php endforeach;?>
+							</div>
+						</div>
+						<div class="row hex-adress">
+						<div class="hexagon-a">
+								<div class="hex-content">
+									<h5>Daisy</h5>
+									<p>615 4th Ave S, Jacksonville Beach, FL 32250</p>
+								</div>
 							</div>
 						</div>
 					</div>

@@ -9,8 +9,8 @@
 	<link rel="stylesheet" href="<?php echo $templateUri?>/css/normalize.css">
 	<link rel="stylesheet" href="<?php echo $templateUri?>/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php echo $templateUri?>/css/jquery.fancybox.min.css">
-	<link rel="stylesheet" href="<?php echo $templateUri?>/css/slick.css">
-	<link rel="stylesheet" href="<?php echo $templateUri?>/css/slick-theme.css">
+	<link rel="stylesheet" href="<?php echo $templateUri?>/slick/slick/slick.css">
+	<link rel="stylesheet" href="<?php echo $templateUri?>/slick/slick/slick-theme.css">
 	<link rel="stylesheet" href="<?php echo $templateUri?>/style.css">
 	<link rel="shortcut icon" href="<?php echo $templateUri?>/logo.ico">
 	<title>Daisy</title>

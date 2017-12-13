@@ -20,10 +20,11 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="<?php echo $templateUri ?>/js/bootstrap.min.js"></script>
 <script src="<?php echo $templateUri ?>/js/jquery.fancybox.min.js"></script>
-<script src="<?php echo $templateUri ?>/js/slick.min.js"></script>
+<script src="<?php echo $templateUri ?>/slick/slick/slick.min.js"></script>
 <script src="<?php echo $templateUri ?>/js/main.js"></script>
 <script src="<?php echo $templateUri ?>/js/classie.js"></script>
 <script src="<?php echo $templateUri ?>/js/modalEffects.js"></script>
+<script src="<?php echo $templateUri ?>/js/smoothscroll.js"></script>
 <?php wp_footer(); ?>
 </body>
 </html>

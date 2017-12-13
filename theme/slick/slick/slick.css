@@ -55,6 +55,8 @@
     left: 0;
 
     display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 .slick-track:before,
 .slick-track:after
@@ -84,7 +86,6 @@
 {
     float: right;
 }
-
 .slick-slide img
 {
     display: block;
@@ -100,7 +101,6 @@
 .slick-initialized .slick-slide
 {
     display: block;
-    padding: 0 2px;
 }
 .slick-loading .slick-slide
 {

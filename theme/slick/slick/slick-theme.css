@@ -2,7 +2,7 @@
 /* Slider */
 .slick-loading .slick-list
 {
-    background: #fff url('../img/ajax-loader.gif') center center no-repeat;
+    background: #fff url('./ajax-loader.gif') center center no-repeat;
 }
 
 /* Icons */
@@ -55,7 +55,7 @@
 .slick-next:hover:before,
 .slick-next:focus:before
 {
-    opacity: 0;
+    opacity: 1;
 }
 .slick-prev.slick-disabled:before,
 .slick-next.slick-disabled:before
@@ -67,7 +67,7 @@
 .slick-next:before
 {
     font-family: 'slick';
-    font-size: 0px;
+    font-size: 20px;
     line-height: 1;
 
     opacity: .75;
@@ -77,23 +77,14 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.slick-prev,
-.slick-prev:hover,
-.slick-prev:focus
+.slick-prev
 {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: -5vw;
-  height: 5vw;
-  width: 2vw;
-  /*background: url(../img/left.svg) 50% 50% no-repeat;*/
-  background-size: contain;
+    left: -25px;
 }
 [dir='rtl'] .slick-prev
 {
-    /*right: -25px;
-    left: auto;*/
+    right: -25px;
+    left: auto;
 }
 .slick-prev:before
 {
@@ -104,36 +95,28 @@
     content: '→';
 }
 
-.slick-next,
-.slick-next:hover,
-.slick-next:focus
+.slick-next
 {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: -5vw;
-  height: 5vw;
-  width: 2vw;
-  /*background: url(../img/right.svg) 50% 50% no-repeat;*/
-  background-size: contain;
+    right: -25px;
 }
-
 [dir='rtl'] .slick-next
 {
     right: auto;
     left: -25px;
 }
-
+.slick-next:before
+{
+    content: '→';
 }
 [dir='rtl'] .slick-next:before
 {
-    content: '';
+    content: '←';
 }
 
 /* Dots */
 .slick-dotted.slick-slider
 {
-    margin: 30px 0;
+    margin-bottom: 30px;
 }
 
 .slick-dots
@@ -150,22 +133,19 @@
     list-style: none;
 
     text-align: center;
-
 }
 .slick-dots li
 {
     position: relative;
-    top: -15px;
+
     display: inline-block;
 
-    width: 15px;
-    height: 15px;
-    margin: 0 5vw;
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
     padding: 0;
 
     cursor: pointer;
-    background-color: #c6cdd5;
-    border-radius: 50%;
 }
 .slick-dots li button
 {
@@ -174,13 +154,11 @@
 
     display: block;
 
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     padding: 5px;
 
     cursor: pointer;
-    background-color: #c6cdd5;
-    border-radius: 50%;
 
     color: transparent;
     border: 0;
@@ -207,15 +185,14 @@
     top: 0;
     left: 0;
 
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
 
-    content: '';
+    content: '•';
     text-align: center;
 
     opacity: .25;
-    background-color: transparent;
-    border-radius: 50%;
+    color: black;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -223,9 +200,5 @@
 .slick-dots li.slick-active button:before
 {
     opacity: .75;
-    background-color: rgb(0, 63, 127);
-    border-radius: 50%;
-}
-.slick-arrow {
-	z-index: 9999;
+    color: black;
 }

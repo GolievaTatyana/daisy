@@ -17,12 +17,10 @@
             <ul class="single-inf">
               <?php
                 $arg_cat =  array(
-                  // 'show_option_all' => 'all',
                   'style'  => 'none',
                   'orderby' => 'name',
-                  'order' => 'ASC',
-                  'include' => '',
                   'taxonomy' => 'portfolio_category',
+                  'separator' => '',
                 );
                 wp_list_categories( $arg_cat );
               ?>
